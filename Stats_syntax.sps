@@ -41,3 +41,41 @@ GLM K_Neu_IH K_Neg_IH K_Pos_IH
   /WSDESIGN=Emo.
 
 
+/*one-way Emo anova on Remember source hits
+
+GLM R_Neu_SH R_Neg_SH R_Pos_SH
+  /WSFACTOR=Emo 3 Polynomial
+  /METHOD=SSTYPE(3)
+  /EMMEANS=TABLES(Emo) COMPARE ADJ(LSD)
+  /PRINT=DESCRIPTIVE ETASQ
+  /CRITERIA=ALPHA(.05)
+  /WSDESIGN=Emo.
+
+/*one-way Emo anova on Familiar source hits
+
+GLM K_Neu_SH K_Neg_SH K_Pos_SH
+  /WSFACTOR=Emo 3 Polynomial
+  /METHOD=SSTYPE(3)
+  /EMMEANS=TABLES(Emo) COMPARE ADJ(LSD)
+  /PRINT=DESCRIPTIVE ETASQ
+  /CRITERIA=ALPHA(.05)
+  /WSDESIGN=Emo.
+
+/*proportion of source correct responses by R/K
+
+DATASET ACTIVATE DataSet1.
+COMPUTE R_Neu_SHper_rate=R_Neu_SH / (R_Neu_SH + K_Neu_SH).
+COMPUTE R_Neg_SHper_rate=R_Neg_SH / (R_Neg_SH + K_Neg_SH).
+COMPUTE R_Pos_SHper_rate=R_Pos_SH / (R_Pos_SH + K_Pos_SH).
+EXECUTE.
+
+/*one-way Emo anova on SC proportion
+
+GLM R_Neu_SHper_rate R_Neg_SHper_rate R_Pos_SHper_rate
+  /WSFACTOR=Emo 3 Polynomial
+  /METHOD=SSTYPE(3)
+  /EMMEANS=TABLES(Emo) COMPARE ADJ(LSD)
+  /PRINT=DESCRIPTIVE ETASQ
+  /CRITERIA=ALPHA(.05)
+  /WSDESIGN=Emo.
+
