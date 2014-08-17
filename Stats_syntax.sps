@@ -79,3 +79,13 @@ GLM R_Neu_SHper_rate R_Neg_SHper_rate R_Pos_SHper_rate
   /CRITERIA=ALPHA(.05)
   /WSDESIGN=Emo.
 
+
+/*one-way EMo anova on Item Hits
+
+GLM Neu_IH Neg_IH Pos_IH
+  /WSFACTOR=Emo 3 Polynomial 
+  /METHOD=SSTYPE(3)
+  /EMMEANS=TABLES(Emo) COMPARE ADJ(LSD)
+  /PRINT=DESCRIPTIVE 
+  /CRITERIA=ALPHA(.05)
+  /WSDESIGN=Emo.
