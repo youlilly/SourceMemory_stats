@@ -30,7 +30,7 @@ GLM R_Neu_SHIH_rate R_Neg_SHIH_rate R_Pos_SHIH_rate K_Neu_SHIH_rate K_Neg_SHIH_r
   /CRITERIA=ALPHA(.05)
   /WSDESIGN=RK Emo RK*Emo.
 
-/*one-way Emo anova on source accuracy
+/*one-way Emo anova on source accuracy-recollection
 
 GLM R_Neu_SHIH_rate R_Neg_SHIH_rate R_Pos_SHIH_rate
   /WSFACTOR=Emo 3 Polynomial
@@ -39,6 +39,8 @@ GLM R_Neu_SHIH_rate R_Neg_SHIH_rate R_Pos_SHIH_rate
   /PRINT=DESCRIPTIVE ETASQ
   /CRITERIA=ALPHA(.05)
   /WSDESIGN=Emo.
+
+/*one-way Emo anova on source accuracy-familiarity
 
 GLM K_Neu_SHIH_rate K_Neg_SHIH_rate K_Pos_SHIH_rate
   /WSFACTOR=Emo 3 Polynomial
